@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script src="./config/sysConfig.js"></script>
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <!-- supermap-3d -->
+  <link href="http://support.supermap.com.cn:8090/webgl/Build/Cesium/Widgets/widgets.css" rel="stylesheet" />
+  <script src="http://support.supermap.com.cn:8090/webgl/examples/webgl/js/jquery.min.js"></script>
+  <script src="http://support.supermap.com.cn:8090/webgl/examples/webgl/js/config.js"></script>
+  <script type="text/javascript" src="http://support.supermap.com.cn:8090/webgl/Build/Cesium/Cesium.js"></script>
+  <script>
+    // 解决supermap加载cesium原生的Cesium3DTileset位置偏移
+    var obj = [6378137.0, 6378137.0, 6356752.3142451793]
+    Cesium.Ellipsoid.WGS84 = Object.freeze(new Cesium.Ellipsoid(obj[0], obj[1], obj[2]))
+  </script>
+  <!-- cesium-3d -->
+  <!-- <script type="text/javascript" src="http://localhost:8080/Build/Cesium/Cesium.js"></script>
+  <script>
+    // 使用原生cesium的token
+    Cesium.Ion.defaultAccessToken =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0YWNjZTliYy1hOTkzLTRmZTctOGQ3Yi0yYmY2Y2VmZmQ0NjUiLCJpZCI6NTcwMzYsImlhdCI6MTYyMTk5MTQxNX0.ToSnXVIxCFNaN3SloGPR_SxcZGG5adlW4XkvAICUrvQ'
+  </script> -->
+  <script src="./mapLib3D/RadarScan.js"></script>
+  <script src="./mapLib3D/Draw.js"></script>
+  <script src="./mapLib3D/cesium-map.js"></script>
+ <title>znv-map</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but vue-test doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
