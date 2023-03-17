@@ -91,8 +91,7 @@ ZnvMap.loadEventCircle = function (opts) {
 }
 
 ZnvMap.changeEventCircleRadiu = function (r) {
-  eventCircle._changeRadiu(r)
-  ZnvMap.showEventCircleContainMarker()
+  eventCircle && eventCircle._changeRadiu(r)
 }
 
 ZnvMap.showEventCircleContainMarker = function () {

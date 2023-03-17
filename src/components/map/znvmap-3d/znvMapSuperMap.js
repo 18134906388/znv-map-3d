@@ -228,13 +228,17 @@ class Circle extends Entity {
       id: opts.id,
       position: Cesium.Cartesian3.fromDegrees(opts.center[0], opts.center[1]),
       ellipse: {
-        semiMinorAxis: opts.radiu,
-        semiMajorAxis: opts.radiu,
+        semiMinorAxis: new Cesium.CallbackProperty(function () {
+          return opts.radiu
+        }, false),
+        semiMajorAxis: new Cesium.CallbackProperty(function () {
+          return opts.radiu
+        }, false),
         height: opts.height,
-        material: Cesium.Color.fromCssColorString('rgba(255, 185, 181, 0.8)'),
+        material: Cesium.Color.fromCssColorString('rgba(255, 185, 181, 0.3)'),
         outline: true,
-        outlineColor: Cesium.Color.fromCssColorString('rgba(255, 229, 227, 1)'),
-        outlineWidth: 3
+        outlineColor: Cesium.Color.fromCssColorString('rgba(255, 255, 255, 1)'),
+        outlineWidth: 3.0 // cesium bug 边线宽度不生效
       }
     })
     this.entity = entity
@@ -244,8 +248,7 @@ class Circle extends Entity {
 
   _changeRadiu(r) {
     this.opts.radiu = r
-    this.entity.ellipse.semiMinorAxis = r
-    this.entity.ellipse.semiMajorAxis = r
+    console.log(this.entity)
   }
 
   _contain(markers) {

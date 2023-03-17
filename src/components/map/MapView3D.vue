@@ -3,7 +3,8 @@
     <div class="znvmap" id="map-container"></div>
     <MapFilter />
     <el-slider
-      @change="eventRadiuChange"
+      @input="changeEventCircleRadiu"
+      @change="showEventCircleContainMarker"
       v-model="eventRadiu"
       :max="10000"
       style="position: absolute; left: 40px; bottom: 20px; width: 300px"
@@ -74,8 +75,11 @@ export default {
         height: 20
       })
     },
-    eventRadiuChange(v) {
+    changeEventCircleRadiu(v) {
       ZnvMap.changeEventCircleRadiu(v)
+    },
+    showEventCircleContainMarker() {
+      ZnvMap.showEventCircleContainMarker()
     },
     loadMapPoints() {
       // 区委
